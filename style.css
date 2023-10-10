@@ -515,9 +515,6 @@ body {
 .grid-container--destination > img {
     grid-area: image;
     max-width: 60%;
-    height: auto;
-    aspect-ratio: 16/9;
-    object-fit: cover;
 }
 
 .grid-container--destination > .tab-list {
