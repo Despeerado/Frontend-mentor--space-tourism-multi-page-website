@@ -291,14 +291,34 @@ select {
     transform: scale(1.5);
 }
 
+/* primary-header */
+
+.logo {
+    margin: clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
 .primary-navigation {
-    /* --gap: 8rem; */
+    --gap: clamp(1.5rem, 5vw, 3.5rem);
     --underline-gap: 2rem;
     list-style: none;
     padding: 0;
     margin: 0;
     background-color: hsl(var(--clr-white)/.05);
     backdrop-filter: blur(2rem);
+}
+
+.primary-navigation a {
+    text-decoration: none;
+}
+
+.primary-navigation a > span {
+    font-weight: 700;
+    margin-right: .5em;
 }
 
 .primary-navigation[data-visible="true"] {
@@ -320,35 +340,70 @@ select {
         margin: 0;
         flex-direction: column;
         transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
     }
 
-    .mobile-nav-toggle {
-    display: block;
-    position: absolute;
-    z-index: 2000;
-    right: 1rem;
-    top: 2rem;
-    background: transparent;
-    background-image: url("/assets/shared/icon-hamburger.svg");
-    background-repeat: no-repeat;
-    width: 1.5rem;
-    aspect-ratio: 1;
-    border: 0;
-
-}
-
-    .primary-navigation.underline-indicators > .active {
+        .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 2000;
+        right: 1rem;
+        top: 2rem;
+        background: transparent;
+        background-image: url("/assets/shared/icon-hamburger.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 1.5rem;
+        aspect-ratio: 1;
         border: 0;
     }
+    .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url("/assets/shared/icon-close.svg");
+        }
+    .mobile-nav-toggle:focus-visible {
+        outline: 5px solid white;
+        outline-offset: 5px;
+    }
+}   
+
+.primary-navigation.underline-indicators > .active {
+    border: 0;
 }
 
-.primary-navigation a {
-    text-decoration: none;
+@media (min-width: 35em) {
+
+
+    .primary-navigation {
+        padding-inline: clamp(3rem, 7vw, 7rem);
+    }
 }
 
-.primary-navigation a > span {
-    font-weight: 700;
-    margin-right: .5em;
+@media (min-width: 35em) and (max-width: 44.999em) {
+    .primary-navigation a > span {
+        display: none;
+    }
+}
+
+@media (min-width: 45em) {
+    .primary-navigation {
+        margin-block: 2rem;
+    }
+
+
+    .primary-header::before {
+        content: '';
+        display: block;
+        position: relative;
+        height: 1px;
+        width: 100%;
+        margin-right: -2.5rem;
+        background: hsl(var(--clr-white)/.25);
+        order: 1;
+    }
+
+    nav {
+        order: 2;
+    }
 }
 
 .underline-indicators > * {
