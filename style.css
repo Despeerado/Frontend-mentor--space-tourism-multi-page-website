@@ -373,3 +373,34 @@ select {
     background-color: hsl(var(--clr-white));
     color: hsl(var(--clr-dark));
 }
+
+/* ------------------- */
+/* Page specifics  */
+/* ------------------- */
+
+
+body {
+    background-size: cover;
+    background-position: bottom center;
+}
+.home {
+    background-image: url("./assets/home/background-home-mobile.jpg");
+}
+
+@media (min-width: 35rem) {
+    body {
+    background-size: cover;
+    background-position: center center;
+}
+    
+    .home {
+        background-image: url("./assets/home/background-home-tablet.jpg");
+    }
+}
+
+@media (min-width: 45rem) {
+    
+    .home {
+        background-image: url("./assets/home/background-home-desktop.jpg");
+    }
+}
