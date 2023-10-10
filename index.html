@@ -11,6 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="/index.js" defer></script>
 
   <title>Frontend Mentor | Space tourism website</title>
 </head>
@@ -20,8 +21,10 @@
     <div>
       <img src="/assets/shared/logo.svg" alt="space tourism logo" class="logo" />
     </div>
-    <!-- <nav>
-      <ul class="primary-navigation underline-indicators flex">
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+        aria-expanded="false">Menu</span></button>
+    <nav>
+      <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
         <li class="active">
           <a href="index.html" class="ufs-300 ff-sans-cond uppercase text-white letter-spacing-2"><span>00</span>
             Home</a>
@@ -39,7 +42,7 @@
             Technology</a>
         </li>
       </ul>
-    </nav> -->
+    </nav>
   </header>
   <div class="grid-container grid-container--home" style="max-width: 60rem">
     <div>
@@ -59,6 +62,7 @@
       <a href="#" class="large-button uppercase ff-serif fs-600 bg-white text-dark">Explore</a>
     </div>
   </div>
+
 </body>
 
 </html>
