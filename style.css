@@ -152,6 +152,10 @@ select {
     margin-top: var(--flow-space, 1rem);
 }
 
+.flow--space-small {
+    --flow-space: .5rem;
+}
+
 .container {
     padding-inline: 2em;
     margin-inline: auto;
@@ -387,9 +391,10 @@ select {
 
 .underline-indicators > * {
     cursor: pointer;
-    padding: var(--underline-gap, 1rem) 0;
+    padding: var(--underline-gap, .5rem) 0;
     border: 0;
     border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+    background-color: transparent;
 }
 
 .underline-indicators > *:hover,
@@ -459,17 +464,15 @@ body {
     background-size: cover;
     background-position: bottom center;
 }
+
 .home {
     background-image: url("./assets/home/background-home-mobile.jpg");
 }
 
 @media (min-width: 35rem) {
-    body {
-    background-size: cover;
-    background-position: center center;
-}
-    
-    .home {
+
+.home {
+        background-position: center center;
         background-image: url("./assets/home/background-home-tablet.jpg");
     }
 }
@@ -478,6 +481,40 @@ body {
     
     .home {
         background-image: url("./assets/home/background-home-desktop.jpg");
+    }
+}
+
+/* Destinations */
+
+@media (min-width: 35rem) {
+
+.destination {
+        background-position: center center;
+        background-image: url("./assets/destination/background-destination-tablet.jpg");
+    }
+}
+
+@media (min-width: 45rem) {
+    
+    .destination {
+        background-image: url("./assets/destination/background-destination-desktop.jpg");
+    }
+}
+
+/* Crew */
+
+@media (min-width: 35rem) {
+
+.crew {
+        background-position: center center;
+        background-image: url("./assets/crew/background-crew-tablet.jpg");
+    }
+}
+
+@media (min-width: 45rem) {
+    
+    .crew {
+        background-image: url("./assets/crew/background-crew-desktop.jpg");
     }
 }
 
@@ -509,7 +546,7 @@ body {
     'title'
     'image'
     'tabs'
-    'content'
+    'content';
 }
 
 .grid-container--destination > img {
@@ -517,7 +554,7 @@ body {
     max-width: 60%;
 }
 
-.grid-container--destination > .dot-indicators {
+.grid-container--destination > .tab-list {
     grid-area: tabs;
 }
 
@@ -561,6 +598,9 @@ body {
     grid-area: content;
 }
 
+.crew-details h2 {
+    color: hsl( var(--clr-white) / .5);
+}
 /* end Crew layout */
 
 @media (min-width: 35em) {
