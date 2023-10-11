@@ -1,51 +1,66 @@
-const tabList = document.querySelector('[role="tablist"]')
-const tabs = tabList.querySelectorAll('[role="tab"]')
+const tabList = document.querySelector('[role="tablist"]');
+const tabs = tabList.querySelectorAll('[role="tab"]');
 
-
-tabList.addEventListener('keydown', changeTabFocus)
+tabList.addEventListener('keydown', changeTabFocus);
 
 tabs.forEach((tab) => {
-	tab.addEventListener('click', changeTabPannel)
-})
+	tab.addEventListener('click', changeTabPanel);
+});
 
-function changeTabPannel(e) {
-	const targetTab = e.target;
-	const targetPanel = targetTab.getAttribute('aria-controls')
-	const tabContainer = targetTab.parentNode
-	const maincontainer = tabContainer.parentNode
 
-	maincontainer
-		.querySelectorAll('[role="tabpanel"]')
-		.forEach((panel) => panel.setAttribute("hidden", true));
+let tabFocus = 0;
+function changeTabFocus(e) {
+	const keydownLeft = 37;
+	const keydownRight = 39;
 
-	maincontainer.querySelector([`#${targetPanel}`]).removeAttribute('hidden')
-	console.log(targetPanel)
+	if (e.keyCode === keydownLeft || e.keyCode === keydownRight) {
+		tabs[tabFocus].setAttribute("tabindex", -1);
+
+		if (e.keyCode === keydownRight) {
+			tabFocus++;
+			if (tabFocus >= tabs.length) {
+				tabFocus = 0;
+			}
+		} else {
+			tabFocus--;
+			if (tabFocus < 0) {
+				tabFocus = tabs.length - 1;
+			}
+		}
+
+		tabs[tabFocus].setAttribute("tabindex", 0);
+		tabs[tabFocus].focus();
+	}
 }
 
-let tabFocus = 0
 
-function changeTabFocus(e) {
-	const keydownLeft = 37
-	const keydownRight = 39
-	// change the tabindex of the current tab to -1
-	if (e.keycode === keydownLeft || e.keycode === keydownRight) {
-		tabs[tabFocus].setAttribute('tabindex', -1)
+function changeTabPanel(e) {
+	const targetTab = e.target;
+	const targetPanel = targetTab.getAttribute("aria-controls");
+	const targetImage = targetTab.getAttribute("data-image");
 
-	}
-	if (e.keycode === keydownRight) {
-		tabFocus++
-		if (tabFocus >= tabs.length) {
-			tabFocus = 0
-		}
-	}
+	const tabContainer = targetTab.parentNode;
+	const mainContainer = tabContainer.parentNode;
 
-	if (e.keycode === keydownLeft) {
-		tabFocus--
-		if (tabFocus < 0) {
-			tabFocus = tabs.length - 1
-		}
-	}
+	tabContainer
+		.querySelector('[aria-selected="true"]')
+		.setAttribute("aria-selected", false);
 
-	tabs[tabFocus].setAttribute('tabindex', 0)
-	tabs[tabFocus].focus()
+	targetTab.setAttribute("aria-selected", true);
+
+	hideContent(mainContainer, '[role="tabpanel"]');
+	showContent(mainContainer, [`#${targetPanel}`]);
+
+	hideContent(mainContainer, 'picture');
+	showContent(mainContainer, [`#${targetImage}`]);
+}
+
+function hideContent(parent, content) {
+	parent
+		.querySelectorAll(content)
+		.forEach((item) => item.setAttribute("hidden", true));
+}
+
+function showContent(parent, content) {
+	parent.querySelector(content).removeAttribute('hidden');
 }
