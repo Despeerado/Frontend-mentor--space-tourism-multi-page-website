@@ -2,12 +2,11 @@
 
 ![Design preview for the Space tourism website coding challenge](./preview.jpg)
 
-Live preview: (https://vercel.com/despeerado/frontend-mentor-space-tourism-multi-page-website)
-
+Live preview: (https://frontend-mentor-space-tourism-multi-page-website.vercel.app/)
 
 Challenge is to build out this multi-page space tourism website and get it looking as close to the design as possible.
 
-**This project is a collaboration between Frontendmentor, Scrimba, and Kevin Powell.
+\*\*This project is a collaboration between Frontendmentor, Scrimba, and Kevin Powell.
 
 Users should be able to:
 
