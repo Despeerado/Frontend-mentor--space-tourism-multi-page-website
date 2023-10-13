@@ -12,6 +12,7 @@
 		rel="stylesheet" />
 	<link rel="stylesheet" href="style.css" />
 	<script src="/index.js" defer></script>
+	<script src="tabs.js" defer></script>
 
 	<title>Frontend Mentor | Space tourism website</title>
 </head>
@@ -46,8 +47,63 @@
 			</ul>
 		</nav>
 	</header>
-	<main id="main">
 
+	<main id="main" class=" grid grid-container-technology flow">
+		<h1 class="numbered-title"><span aria-hidden="true">02</span>Space launch 101</h1>
+		<div class="numbered-indicators flex" role="tablist" aria-label="technology" style="margin-block: 5rem">
+			<button class="ff-serif" aria-controls="vehicle-tab" role="tab" aria-selected="true" tabindex="0"
+				data-image="vehicle-image">1</button>
+			<button class="ff-serif" aria-controls="spaceport-tab" role="tab" aria-selected="false" tabindex="-1"
+				data-image="spaceport-image">2</button>
+			<button class="ff-serif" aria-controls="capsule-tab" role="tab" aria-selected="false" tabindex="-1"
+				data-image="capsule-image">3</button>
+		</div>
+		<!-- launch vehicle -->
+		<article class="technology-details flow" id="vehicle-tab" role="tabpanel" tabindex="0">
+			<header class="flow flow--space-small">
+				<h2 class="fs-400 ff-sans-cond uppercase letter-spacing-1 text-accent">The terminology...</h2>
+				<p class="fs-700 uppercase ff-serif">Launch vehicle</p>
+			</header>
+			<p>A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a
+				payload from Earth's surface to space, usually to Earth orbit or beyond. Our
+				WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall,
+				it's quite an awe-inspiring sight on the launch pad!</p>
+		</article>
+		<!-- Spaceport -->
+		<article hidden class="technology-details flow" id="spaceport-tab" role="tabpanel" tabindex="0">
+			<header class="flow flow--space-small">
+				<h2 class="fs-400 ff-sans-cond uppercase letter-spacing-1 text-accent">The terminology...</h2>
+				<p class="fs-700 uppercase ff-serif">Spaceport</p>
+			</header>
+			<p>A spaceport or cosmodrome is a site for launching (or receiving) spacecraft,
+				by analogy to the seaport for ships or airport for aircraft. Based in the
+				famous Cape Canaveral, our spaceport is ideally situated to take advantage
+				of the Earth’s rotation for launch.</p>
+		</article>
+		<!-- space capsule -->
+		<article hidden class="technology-details flow" id="capsule-tab" role="tabpanel" tabindex="0">
+			<header class="flow flow--space-small">
+				<h2 class="fs-400 ff-sans-cond uppercase letter-spacing-1 text-accent">The terminology...</h2>
+				<p class="fs-700 uppercase ff-serif">Space capsule</p>
+			</header>
+			<p>A space capsule is an often-crewed spacecraft that uses a blunt-body reentry
+				capsule to reenter the Earth's atmosphere without wings. Our capsule is where
+				you'll spend your time during the flight. It includes a space gym, cinema,
+				and plenty of other activities to keep you entertained.</p>
+		</article>
+
+		<picture id="vehicle-image">
+			<source srcset="assets/technology/image-launch-vehicle-portrait.jpg" media="(min-width: 45rem)" type="image/webp">
+			<img src="assets/technology/image-launch-vehicle-landscape.jpg" alt="launch vehicle">
+		</picture>
+		<picture hidden id="spaceport-image">
+			<source srcset="assets/technology/image-spaceport-portrait.jpg" media="(min-width: 45rem)" type="image/webp">
+			<img src="assets/technology/image-spaceport-landscape.jpg" alt="spaceport">
+		</picture>
+		<picture hidden id="capsule-image">
+			<source srcset="assets/technology/image-space-capsule-portrait.jpg" media="(min-width: 45rem)" type="image/webp">
+			<img src="assets/technology/image-space-capsule-landscape.jpg" alt="space capsule">
+		</picture>
 	</main>
 </body>
 
